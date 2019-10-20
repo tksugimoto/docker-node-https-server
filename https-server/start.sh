@@ -19,7 +19,7 @@ openssl genrsa \
 openssl req \
     -new \
     -key $root_private_key_path \
-    -subj "/CN=${ROOT_CERT_COMMON_NAME:-Private CA}" \
+    -subj "//CN=${ROOT_CERT_COMMON_NAME:-Private CA}" \
     -x509 \
     -days ${ROOT_CERT_LIFETIME_DAYS:-30} \
     -out $root_cert_path \
@@ -43,7 +43,7 @@ openssl genrsa \
 openssl req \
     -new \
     -key ${server_private_key_path} \
-    -subj "/O=Private HTTPS SERVER" \
+    -subj "//O=Private HTTPS SERVER" \
 | openssl x509 \
     -req \
     -CAkey ${root_private_key_path} \
@@ -54,4 +54,4 @@ openssl req \
     -out ${server_cert_path} \
 
 # start https server
-node index.js
+node ./https-server/index.js
