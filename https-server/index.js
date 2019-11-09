@@ -24,6 +24,7 @@ const httpsServer = https.createServer({
 httpsServer.on('request', (req, res) => {
     log(`[${req.method}] ${req.url}, host: ${req.headers.host}`);
     res.writeHead(200);
+    res.write('<title>hello</title>\n');
     res.end('hello world\n');
 });
 
