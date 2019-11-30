@@ -13,10 +13,11 @@ services:
       TZ:
       SERVER_DOMAINS:
       HTTPS_SERVER_BIND_IP:
+      HTTPS_SERVER_BIND_PORT:
       ROOT_CERT_COMMON_NAME:
       ROOT_CERT_LIFETIME_DAYS:
     ports:
-      - "${HTTPS_SERVER_BIND_IP}:443:443"
+      - "${HTTPS_SERVER_BIND_IP}:${HTTPS_SERVER_BIND_PORT}:443"
     restart: always
     logging:
       driver: "json-file"

@@ -34,5 +34,5 @@ httpsServer.on('error', err => {
 });
 
 httpsServer.listen(HTTPS_PORT, '0.0.0.0', () => {
-    log(`server started (https://${process.env.HTTPS_SERVER_BIND_IP}/)`);
+    log(`server started (https://${process.env.HTTPS_SERVER_BIND_IP}:${process.env.HTTPS_SERVER_BIND_PORT}/)`);
 });
